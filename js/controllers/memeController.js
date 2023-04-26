@@ -8,7 +8,6 @@ renderMeme()
 
 function renderMeme() {
     const meme = getMeme()
-
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
     const elImg = new Image() // Create a new html img element
@@ -16,19 +15,19 @@ function renderMeme() {
     // When the image ready draw it on the canvas
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        gCtx.font = meme.lines[0].size + 'px '+ 'Impact'
-        gCtx.fillStyle = meme.lines[0].fillColor
-        gCtx.strokeStyle = meme.lines[0].strokeColor
-        gCtx.textAlign = meme.lines[0].align
-        const memeTxt = (meme.lines[0].txt) ? meme.lines[0].txt : ''
+        gCtx.font = meme.lines[meme.selectedLineIdx].size + 'px ' + meme.lines[meme.selectedLineIdx].font
+        gCtx.fillStyle = meme.lines[meme.selectedLineIdx].fillColor
+        gCtx.strokeStyle = meme.lines[meme.selectedLineIdx].strokeColor
+        gCtx.textAlign = meme.lines[meme.selectedLineIdx].align
+        const memeTxt = (meme.lines[meme.selectedLineIdx].txt) ? meme.lines[meme.selectedLineIdx].txt : ''
         gCtx.fillText(memeTxt, gElCanvas.width / 3, 50)
         gCtx.strokeText(memeTxt, gElCanvas.width / 3, 50)
     }
 }
 
 function onSetLineTxt(txt) {
-   setLineTxt(txt)
-   renderMeme()
+    setLineTxt(txt)
+    renderMeme()
 }
 
 function onSetStrokeColor(color) {
@@ -38,6 +37,26 @@ function onSetStrokeColor(color) {
 
 function onSetFillColor(color) {
     setFillColor(color)
+    renderMeme()
+}
+
+function onIncreaseFont() {
+    increaseFont()
+    renderMeme()
+}
+
+function onDecreaseFont() {
+    decreaseFont()
+    renderMeme()
+}
+
+function onSetFontFamily(font) {
+    setFontFamily(font)
+    renderMeme()
+}
+
+function onSwitchLine(idx) {
+    switchLine(idx)
     renderMeme()
 }
 

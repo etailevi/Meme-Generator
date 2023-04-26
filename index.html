@@ -57,30 +57,33 @@
                         <input type="text" placeholder="Add Text" oninput="onSetLineTxt(this.value)">
                     </li>
                     <li class="text-control">
-                        <button><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"
-                                alt="Up / Down Text"></button>
+                        <button onclick="onSwitchLine()"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"
+                                alt="Switch Text Line"></button>
                         <button><img src="icons/add.png" alt="Add"></button>
                         <button><img src="icons/trash.png" alt="Trash"></button>
                     </li>
                     <li class="text-editor-wrapper">
                         <div class="text-editor">
-                            <button><img src="icons/increase font - icon.png" alt="Font larger"></button>
-                            <button><img src="icons/decrease font - icon.png" alt="Font smaller"></button>
+                            <button onclick="onIncreaseFont()"><img src="icons/increase font - icon.png" alt="Font larger"></button>
+                            <button onclick="onDecreaseFont()"><img src="icons/decrease font - icon.png" alt="Font smaller"></button>
                             <button><img src="icons/align-to-left.png" alt="Text align left"></button>
                             <button><img src="icons/center-text-alignment.png" alt="Text align center"></button>
                             <button><img src="icons/align-to-right.png" alt="Text align right"></button>
-                            <select id="font-style">
+                            <select id="select-font" onchange="onSetFontFamily(this.value)">
                                 <option value="impact">Impact</option>
                                 <option value="arial">Arial</option>
+                                <option value="lobster">Lobster</option>
+                                <option value="rubik">Rubik</option>
+                                <option value="sigmar">Sigmar</option>
                             </select>
                         </div>
                         <button class="btn-control btn-font-stroke">
                             <img src="icons/paint-board-and-brush.png" alt="Text fill">
-                            <input type="color" value="black" oninput="onSetStrokeColor(this.value)">
+                            <input type="color" value="#000" oninput="onSetStrokeColor(this.value)">
                         </button>
                         <button class="btn-control btn-font-fill">
                             <img src="icons/text stroke.png" alt="Text stroke">
-                            <input type="color" value="white" oninput="onSetFillColor(this.value)">
+                            <input type="color" value="#fff" oninput="onSetFillColor(this.value)">
                         </button>
                     </li>
                     <li>
@@ -106,8 +109,8 @@
     <script src="js/service/storage.js"></script>
     <script src="js/service/galleryService.js"></script>
     <script src="js/service/memeService.js"></script>
-    <script src="js/galleryController.js"></script>
-    <script src="js/memeController.js"></script>
+    <script src="js/controllers/galleryController.js"></script>
+    <script src="js/controllers/memeController.js"></script>
     <script src="js/service/sharing-on-facebook.js"></script>
 
 </body>

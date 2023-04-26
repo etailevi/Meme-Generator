@@ -2,3 +2,18 @@
     font-family: poppins;
     src: url(/../../fonts/poppins/Poppins-Medium.ttf);
 }
+
+@font-face {
+    font-family: lobster;
+    src: url(/../../fonts/lobster/Lobster-Regular.ttf);
+}
+
+@font-face {
+    font-family: rubik;
+    src: url(/../../fonts/rubik/Rubik-Medium.ttf);
+}
+
+@font-face {
+    font-family: sigmar;
+    src: url(/../../fonts/sigmar/Sigmar-Regular.ttf);
+}
