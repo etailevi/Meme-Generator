@@ -1,0 +1,52 @@
+.image-gallery {
+    background-color: #383b42;
+    margin: 2em;
+    padding: 2em;
+    border-radius: 2em;
+}
+
+.image-gallery ul li a {
+    padding: 0.8em;
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.search-box {
+    background-color: #22252c;
+    color: white;
+    border: none;
+    padding: 0.5em;
+    border-radius: 2em;
+}
+
+.keywords-container {
+    background-color: #fefefe;
+    border-radius: 2em;
+    padding: 0.5em;
+}
+
+.more-btn {
+    background-image: linear-gradient(-86deg, var(--clr3) 0%, var(--clr1) 100%);
+}
+
+.images-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+    grid-auto-flow: dense;
+    gap: 2em;
+    margin: 2em 0 auto;
+}
+
+.images-container img {
+    width: 100%;
+    border-radius: 1em;
+    display: block;
+    cursor: pointer;
+    transition: .2s ease-in;
+}
+
+.images-container img:hover {
+    scale: 1.1;
+    box-shadow: 0 0 10px 3px var(--clr2);
+}

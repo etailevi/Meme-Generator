@@ -3,11 +3,3 @@
     height: 400px;
     background-color: var(--clr2);
 }
-
-.image-gallery {
-    display: none;
-}
-
-.about {
-    display: none;
-}

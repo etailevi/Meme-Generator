@@ -27,6 +27,14 @@
     flex-direction: row;
 }
 
+.none {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
 /* list helpers */
 
 .clean-list {

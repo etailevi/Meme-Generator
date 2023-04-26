@@ -7,20 +7,38 @@ let gCtx
 renderMeme()
 
 function renderMeme() {
+    const meme = getMeme()
+
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
     const elImg = new Image() // Create a new html img element
-    elImg.src = 'meme-imgs (square)/1.jpg' // Send a network req to get that image, define the img src
-    console.log('elImg:', elImg)
+    elImg.src = `squared-imgs/${meme.selectedImgId}.jpg` // Send a network req to get that image, define the img src
     // When the image ready draw it on the canvas
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        gCtx.font = '25px poppins'
-        gCtx.fillStyle = 'green'
-        gCtx.strokeStyle = 'black'
-        gCtx.fillText('hello world!', gElCanvas.width / 3, gElCanvas.height / 2)
-        gCtx.strokeText('hello world!', gElCanvas.width / 3, gElCanvas.height / 2)
+        gCtx.font = meme.lines[0].size + 'px '+ 'Impact'
+        gCtx.fillStyle = meme.lines[0].fillColor
+        gCtx.strokeStyle = meme.lines[0].strokeColor
+        gCtx.textAlign = meme.lines[0].align
+        const memeTxt = (meme.lines[0].txt) ? meme.lines[0].txt : ''
+        gCtx.fillText(memeTxt, gElCanvas.width / 3, 50)
+        gCtx.strokeText(memeTxt, gElCanvas.width / 3, 50)
     }
+}
+
+function onSetLineTxt(txt) {
+   setLineTxt(txt)
+   renderMeme()
+}
+
+function onSetStrokeColor(color) {
+    setStrokeColor(color)
+    renderMeme()
+}
+
+function onSetFillColor(color) {
+    setFillColor(color)
+    renderMeme()
 }
 
 function downloadImg(elLink) {

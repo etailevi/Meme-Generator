@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/ac0207dce0.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body  onload="onInitImgGallery()">
     <div class="main-screen" onclick="toggleMenu()"></div>
 
     <header class="main-header flex space-between align-center">
@@ -27,11 +27,26 @@
     </header>
 
     <main class="main-layout">
-        <section class="image-gallery">
+        <section class="image-gallery block">
+            <nav class="gallery-nav flex space-between align-center">
 
+                <input type="text" class="search-box" data-trans="search-box-placeholder" oninput="onSetFilterBy(value)"
+                    placeholder="Search By Keyword" />
+
+                <ul class="keywords-container clean-list flex justify-evenly">
+                    <li><a href="#">Funny</a></li>
+                    <li><a href="#">Animal</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Cry</a></li>
+                </ul>
+                <button class="btn more-btn">more</button>
+            </nav>
+            <section class="images-container"></section>
         </section>
 
-        <section class="meme-editor flex justify-evenly align-center">
+
+        <section class="meme-editor flex justify-evenly align-center none">
             <div class="canvas-container">
                 <canvas id="my-canvas" width="400" height="400"></canvas>
             </div>
@@ -39,10 +54,11 @@
             <div class="editor-container">
                 <ul class="clean-list flex direction-column">
                     <li>
-                        <input type="text" placeholder="Add Text">
+                        <input type="text" placeholder="Add Text" oninput="onSetLineTxt(this.value)">
                     </li>
                     <li class="text-control">
-                        <button><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt="Up / Down Text"></button>
+                        <button><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"
+                                alt="Up / Down Text"></button>
                         <button><img src="icons/add.png" alt="Add"></button>
                         <button><img src="icons/trash.png" alt="Trash"></button>
                     </li>
@@ -60,11 +76,11 @@
                         </div>
                         <button class="btn-control btn-font-stroke">
                             <img src="icons/paint-board-and-brush.png" alt="Text fill">
-                            <input type="color" oninput="onSetStrokeColor(this.value)">
+                            <input type="color" value="black" oninput="onSetStrokeColor(this.value)">
                         </button>
                         <button class="btn-control btn-font-fill">
                             <img src="icons/text stroke.png" alt="Text stroke">
-                            <input type="color" oninput="onSetFillColor(this.value)">
+                            <input type="color" value="white" oninput="onSetFillColor(this.value)">
                         </button>
                     </li>
                     <li>
@@ -82,14 +98,17 @@
             </div>
         </section>
 
-        <section class="about">
+        <section class="about none">
 
         </section>
     </main>
 
     <script src="js/service/storage.js"></script>
-    <script src="js/service/service.js"></script>
-    <script src="js/controller.js"></script>
+    <script src="js/service/galleryService.js"></script>
+    <script src="js/service/memeService.js"></script>
+    <script src="js/galleryController.js"></script>
+    <script src="js/memeController.js"></script>
+    <script src="js/service/sharing-on-facebook.js"></script>
 
 </body>
 
