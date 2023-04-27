@@ -1,8 +1,8 @@
 'use strict'
 
 let gImgId
-let gCanvasWidth
-let gCanvasHeight
+let gCanvasWidth = 400
+let gCanvasHeight = 400
 let gMeme = _createMeme()
 
 
@@ -23,24 +23,24 @@ function _createMeme() {
                 txt: 'Add Text',
                 font: 'Impact',
                 size: 30,
-                align: 'left',
+                align: 'center',
                 strokeColor: 'black',
                 fillColor: 'white',
                 pos: {
                     x: gCanvasWidth / 2,
-                    y: gCanvasHeight * 0.2
+                    y: gCanvasHeight * 0.15
                 },
             },
             {
                 txt: 'Add Text',
                 font: 'Impact',
                 size: 30,
-                align: 'left',
+                align: 'center',
                 strokeColor: 'black',
                 fillColor: 'white',
                 pos: {
                     x: gCanvasWidth / 2,
-                    y: gCanvasHeight * 0.8
+                    y: gCanvasHeight * 0.85
                 },
             }
         ]
@@ -76,6 +76,14 @@ function switchLine(idx) {
     else gMeme.selectedLineIdx = (gMeme.selectedLineIdx === gMeme.lines.length - 1) ? 0 : gMeme.selectedLineIdx + 1
 }
 
-function SetFilterBy(value) {
+function alignLeft(value) {
+    gMeme.lines[gMeme.selectedLineIdx].align = value
+}
 
+function alignCenter(value) {
+    gMeme.lines[gMeme.selectedLineIdx].align = value
+}
+
+function alignRight(value) {
+    gMeme.lines[gMeme.selectedLineIdx].align = value
 }

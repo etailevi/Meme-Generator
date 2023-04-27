@@ -1,17 +1,115 @@
+.canvas-container {
+    width: 400px;
+    height: 400px;
+}
+
+canvas {
+    border-radius: 1em;
+    border: 0.5em solid #e940579e;
+}
+
 .editor-container {
     width: 480px;
+    background-color: #383b42;
+    margin: 2em;
+    padding: 2em;
+    border-radius: 2em;
 }
 
 .editor-container ul img {
     width: 30px;
 }
 
-input[type="color"] {
+.fonts-editor {
+    background-color: #19a59f;
+    border-radius: 1em;
+    margin: 1em;
+}
+
+.fonts-editor>* {
+    margin: 1em;
+}
+
+.text-bar {
+    height: 3.75em;
+    width: 28.125em;
+    border-radius: 2em;
+    background-color: #e8eaec;
+}
+
+.text-input {
+    display: block;
     height: 100%;
+    width: 100%;
+    border-radius: 2em;
+    text-align: center;
+    margin: auto;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.btn-editor {
+    height: 3.125em;
+    width: 3.125em;
+    border-radius: .5em;
+    margin-block-start: 0.625em;
+}
+
+.btn-switch {
+    background-color: #4092a6;
+    box-shadow: -1px 4px 0px 0px #265460;
+}
+
+.btn-add {
+    background-color: #3ead4e;
+    box-shadow: -1px 4px 0px 0px #3b8447;
+}
+
+.btn-remove {
+    background-color: #E94536;
+    box-shadow: -1px 4px 0px 0px #8e3f38;
+}
+
+.select-font {
+    border-radius: .5em;
+    padding-inline: 6em;
+}
+
+input[type="color"] {
+    height: 40px;
     opacity: 0;
     cursor: pointer;
-    /* position: absolute; */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: absolute;
+    /* top: 50%;
+    left: 50%; */
+    transform: translate(-50%, -100%);
+}
+
+.btn-share,
+.btn-download,
+.btn-save {
+    width: 8.75em;
+    position: relative;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-share {
+    background-color: #1E7CD3;
+    box-shadow: -1px 3px 0px 0px #32689a;
+}
+
+.btn-download {
+    background-color: #8F44BB;
+    box-shadow: -1px 3px 0px 0px #614572;
+}
+
+.btn-download a {
+    text-decoration: none;
+    color: white;
+}
+
+.btn-save {
+    background-color: #25b03c;
+    box-shadow: -1px 3px 0px 0px #2b7937;
 }

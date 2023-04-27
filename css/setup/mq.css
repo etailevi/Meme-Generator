@@ -1,0 +1,24 @@
+@media (max-width: 600px) {
+    .main-header {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .main-header li {
+        margin-block-start: 0.2em;
+    }
+
+    .meme-editor {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 900px) {
+    .gallery-nav {
+        flex-wrap: wrap;
+    }
+
+    .meme-editor {
+        flex-wrap: wrap;
+    }
+}

@@ -9,6 +9,7 @@ body {
     background-color: #22252c;
 }
 
+button,
 .btn {
     border-radius: 2em;
     padding: 0.5em;

@@ -22,7 +22,3 @@ function _createImgs() {
     
     return imgs
 }
-
-function onSetFilterBy(value) {
-    SetFilterBy(value)
-}

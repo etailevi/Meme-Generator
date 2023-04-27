@@ -11,99 +11,120 @@
     <script src="https://kit.fontawesome.com/ac0207dce0.js" crossorigin="anonymous"></script>
 </head>
 
-<body  onload="onInitImgGallery()">
-    <div class="main-screen" onclick="toggleMenu()"></div>
+<body onload="onInitImgGallery()">
 
-    <header class="main-header flex space-between align-center">
-        <div class="logo"><img src="logo/logo.png" alt="MemeGen-logo"></div>
-        <nav class="main-nav-container">
-            <ul class="main-nav flex clean-list">
-                <li><a href="#" onclick="onShowGallery()">Gallery</a></li>
-                <li><a href="#" onclick="onShowSaved()">Saved Memes</a></li>
-                <li><a href="#" onclick="onShowAbout()">About</a></li>
-            </ul>
-        </nav>
-        <!-- <button class="btn-menu" onclick="toggleMenu()">☰</button> -->
-    </header>
+    <main class="main-wrapper main-layout">
 
-    <main class="main-layout">
-        <section class="image-gallery block">
-            <nav class="gallery-nav flex space-between align-center">
 
-                <input type="text" class="search-box" data-trans="search-box-placeholder" oninput="onSetFilterBy(value)"
-                    placeholder="Search By Keyword" />
 
-                <ul class="keywords-container clean-list flex justify-evenly">
-                    <li><a href="#">Funny</a></li>
-                    <li><a href="#">Animal</a></li>
-                    <li><a href="#">Men</a></li>
-                    <li><a href="#">Women</a></li>
-                    <li><a href="#">Cry</a></li>
+        <div class="main-screen" onclick="toggleMenu()"></div>
+
+        <header class="main-header main-layout flex space-between align-center">
+            <img src="logo/logo.png" alt="MemeGen-logo" class="logo" onclick="onShowGallery()">
+            <nav class="main-nav">
+                <ul class="flex clean-list">
+                    <li><a href="" class="nav-link flex align-center justify-center"
+                            onclick="onShowGallery()">Gallery</a></li>
+                    <li><a href="#" class="nav-link flex align-center justify-center" onclick="onShowSaved()">Saved
+                            Memes</a></li>
+                    <li><a href="#" class="nav-link flex align-center justify-center" onclick="onShowAbout()">About</a>
+                    </li>
                 </ul>
-                <button class="btn more-btn">more</button>
             </nav>
-            <section class="images-container"></section>
-        </section>
+            <button class="btn-menu" onclick="toggleMenu()"><img src="icons/menu-icon.svg" alt="Menu Icon"></button>
+        </header>
+
+        <main class="main-layout main-content">
+            <section class="image-gallery block">
+                <nav class="gallery-nav flex space-around align-center">
+                    <div class="search-container">
+                        <input type="text" class="search-box" data-trans="search-box-placeholder" oninput="onSetFilterBy(value)"
+                        placeholder="Search By Keyword" />
+    
+                    </div>
+                    <ul class="keywords-container clean-list flex justify-evenly">
+                        <li><a href="#">Funny</a></li>|
+                        <li><a href="#">Animal</a></li>|
+                        <li><a href="#">Men</a></li>|
+                        <li><a href="#">Women</a></li>|
+                        <li><a href="#">Cry</a></li>
+                    </ul>
+                    </div>
+                    <button class="btn more-btn">More</button>
+                </nav>
+                <section class="images-container main-layout flex justify-center wrap">
+                </section>
+            </section>
 
 
-        <section class="meme-editor flex justify-evenly align-center none">
-            <div class="canvas-container">
-                <canvas id="my-canvas" width="400" height="400"></canvas>
-            </div>
+            <section class="meme-editor flex justify-evenly align-center none">
+                <div class="canvas-container">
+                    <canvas id="my-canvas" width="400" height="400"></canvas>
+                </div>
 
-            <div class="editor-container">
-                <ul class="clean-list flex direction-column">
-                    <li>
-                        <input type="text" placeholder="Add Text" oninput="onSetLineTxt(this.value)">
-                    </li>
-                    <li class="text-control">
-                        <button onclick="onSwitchLine()"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"
-                                alt="Switch Text Line"></button>
-                        <button><img src="icons/add.png" alt="Add"></button>
-                        <button><img src="icons/trash.png" alt="Trash"></button>
-                    </li>
-                    <li class="text-editor-wrapper">
-                        <div class="text-editor">
-                            <button onclick="onIncreaseFont()"><img src="icons/increase font - icon.png" alt="Font larger"></button>
-                            <button onclick="onDecreaseFont()"><img src="icons/decrease font - icon.png" alt="Font smaller"></button>
-                            <button><img src="icons/align-to-left.png" alt="Text align left"></button>
-                            <button><img src="icons/center-text-alignment.png" alt="Text align center"></button>
-                            <button><img src="icons/align-to-right.png" alt="Text align right"></button>
-                            <select id="select-font" onchange="onSetFontFamily(this.value)">
-                                <option value="impact">Impact</option>
-                                <option value="arial">Arial</option>
-                                <option value="lobster">Lobster</option>
-                                <option value="rubik">Rubik</option>
-                                <option value="sigmar">Sigmar</option>
-                            </select>
-                        </div>
-                        <button class="btn-control btn-font-stroke">
-                            <img src="icons/paint-board-and-brush.png" alt="Text fill">
-                            <input type="color" value="#000" oninput="onSetStrokeColor(this.value)">
-                        </button>
-                        <button class="btn-control btn-font-fill">
-                            <img src="icons/text stroke.png" alt="Text stroke">
-                            <input type="color" value="#fff" oninput="onSetFillColor(this.value)">
-                        </button>
-                    </li>
-                    <li>
-                        <div class="emoji-picker">
-                            <!-- div will contain rendered stickers -->
-                        </div>
-                    </li>
-                    <li>
-                        <button class="btn share-btn" onclick="onUploadImg()">Share</button>
-                        <button class="btn download-btn"><a href="#" onclick="downloadImg(this)"
-                                download="my-meme.jpg">Download</a></button>
-                        <button class="btn save-btn" onclick="">Save</button>
-                    </li>
-                </ul>
-            </div>
-        </section>
+                <div class="editor-container flex direction-column align-center">
+                    <ul class="clean-list flex direction-column">
+                        <li class="text-bar">
+                            <input type="text" class="text-input" placeholder="Add Text" oninput="onSetLineTxt(this.value)">
+                        </li>
+                        <li class="text-control flex justify-evenly">
+                            <button class="btn-editor btn-squared btn-switch" onclick="onSwitchLine()"><img
+                                    src="icons/up-and-down-opposite-double-arrows-side-by-side.png"
+                                    alt="Switch Text Line"></button>
+                            <button class="btn-editor btn-squared btn-add"><img src="icons/add.png" alt="Add"></button>
+                            <button class="btn-editor btn-squared btn-remove"><img src="icons/trash.png" alt="Trash"></button>
+                        </li>
+                        <li class="fonts-editor grid">
+                            <div class="text-editor flex space-between align-center">
+                                <button class="btn-editor btn-squared" onclick="onIncreaseFont()"><img
+                                        src="icons/increase font - icon.png" alt="Font larger"></button>
+                                <button class="btn-editor btn-squared" onclick="onDecreaseFont()"><img
+                                        src="icons/decrease font - icon.png" alt="Font smaller"></button>
+                                <button class="btn-editor btn-squared" value="left" onclick="onAlignLeft(this.value)"><img
+                                        src="icons/align-to-left.png" alt="Text align left"></button>
+                                <button class="btn-editor btn-squared" value="center" onclick="onAlignCenter(this.value)"><img
+                                        src="icons/center-text-alignment.png" alt="Text align center"></button>
+                                <button class="btn-editor btn-squared" value="right" onclick="onAlignRight(this.value)"><img
+                                        src="icons/align-to-right.png" alt="Text align right"></button>
+                            </div>
+                            <div class="flex space-between">
+                                <select class="select-font btn btn-squared" id="select-font" onchange="onSetFontFamily(this.value)">
+                                    <option value="impact">Impact</option>
+                                    <option value="arial">Arial</option>
+                                    <option value="lobster">Lobster</option>
+                                    <option value="rubik">Rubik</option>
+                                    <option value="sigmar">Sigmar</option>
+                                </select>
 
-        <section class="about none">
+                                <button class="btn-editor btn btn-squared btn-font-stroke">
+                                    <img src="icons/paint-board-and-brush.png" alt="Text fill">
+                                    <input type="color" value="#000" oninput="onSetStrokeColor(this.value)">
+                                </button>
+                                <button class="btn-editor btn btn-squared btn-font-fill">
+                                    <img src="icons/text stroke.png" alt="Text stroke">
+                                    <input type="color" value="#fff" oninput="onSetFillColor(this.value)">
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="emoji-picker">
+                                <!-- div will contain rendered stickers -->
+                            </div>
+                        </li>
+                        <li class="flex space-between">
+                            <button class="btn-editor btn-share btn-squared" onclick="onUploadImg()">Share</button>
+                            <button class="btn-editor btn-download btn-squared"><a href="#" onclick="downloadImg(this)"
+                                    download="my-meme.jpg">Download</a></button>
+                            <button class="btn-editor btn-save btn-squared" onclick="">Save</button>
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
-        </section>
+            <section class="about none">
+
+            </section>
+        </main>
     </main>
 
     <script src="js/service/storage.js"></script>

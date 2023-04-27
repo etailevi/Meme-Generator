@@ -8,6 +8,7 @@ renderMeme()
 
 function renderMeme() {
     const meme = getMeme()
+    const lineDetails = meme.lines[meme.selectedLineIdx]
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
     const elImg = new Image() // Create a new html img element
@@ -15,13 +16,13 @@ function renderMeme() {
     // When the image ready draw it on the canvas
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        gCtx.font = meme.lines[meme.selectedLineIdx].size + 'px ' + meme.lines[meme.selectedLineIdx].font
-        gCtx.fillStyle = meme.lines[meme.selectedLineIdx].fillColor
-        gCtx.strokeStyle = meme.lines[meme.selectedLineIdx].strokeColor
-        gCtx.textAlign = meme.lines[meme.selectedLineIdx].align
-        const memeTxt = (meme.lines[meme.selectedLineIdx].txt) ? meme.lines[meme.selectedLineIdx].txt : ''
-        gCtx.fillText(memeTxt, gElCanvas.width / 3, 50)
-        gCtx.strokeText(memeTxt, gElCanvas.width / 3, 50)
+        gCtx.font = lineDetails.size + 'px ' + lineDetails.font
+        gCtx.fillStyle = lineDetails.fillColor
+        gCtx.strokeStyle = lineDetails.strokeColor
+        gCtx.textAlign = lineDetails.align
+        const memeTxt = (lineDetails.txt) ? lineDetails.txt : ''
+        gCtx.fillText(memeTxt, lineDetails.pos.x, lineDetails.pos.y)
+        gCtx.strokeText(memeTxt, lineDetails.pos.x, lineDetails.pos.y)
     }
 }
 
@@ -57,6 +58,21 @@ function onSetFontFamily(font) {
 
 function onSwitchLine(idx) {
     switchLine(idx)
+    renderMeme()
+}
+
+function onAlignLeft(value) {
+    alignLeft(value)
+    renderMeme()
+}
+
+function onAlignCenter(value) {
+    alignCenter(value)
+    renderMeme()
+}
+
+function onAlignRight(value) {
+    alignRight(value)
     renderMeme()
 }
 

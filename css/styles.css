@@ -13,4 +13,4 @@
 @import url(components/meme-editor.css);
 
 /* MEDIA-QUERIES */
-@import url(setup/mq);
+@import url(setup/mq.css);
