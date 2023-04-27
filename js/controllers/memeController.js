@@ -41,15 +41,7 @@ function onSetFillColor(color) {
     renderMeme()
 }
 
-function onIncreaseFont() {
-    increaseFont()
-    renderMeme()
-}
 
-function onDecreaseFont() {
-    decreaseFont()
-    renderMeme()
-}
 
 function onSetFontFamily(font) {
     setFontFamily(font)
@@ -58,6 +50,26 @@ function onSetFontFamily(font) {
 
 function onSwitchLine(idx) {
     switchLine(idx)
+    renderMeme()
+}
+
+function onAddLine() {
+    addLine()
+    renderMeme()
+}
+
+function onRemoveLine() {
+    removeLine()
+    renderMeme()
+}
+
+function onIncreaseFont() {
+    increaseFont()
+    renderMeme()
+}
+
+function onDecreaseFont() {
+    decreaseFont()
     renderMeme()
 }
 

@@ -11,6 +11,7 @@ body {
 
 button,
 .btn {
+    font-family: poppins, sans-serif;
     border-radius: 2em;
     padding: 0.5em;
     cursor: pointer;
@@ -19,6 +20,8 @@ button,
     transition: .2s ease-in-out;
 }
 
+button:hover,
 .btn:hover {
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    filter: brightness(85%);
+    scale: 0.95;
 }

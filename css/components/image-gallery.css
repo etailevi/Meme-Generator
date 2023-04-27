@@ -32,6 +32,12 @@
     font-size: 1.2em;
 }
 
+.keywords-container li:hover {
+        background-color: rgb(209, 193, 193);
+        color: var(--clr1);
+        border-radius: 2em;
+}
+
 .more-btn {
     color: white;
     font-size: 1.1em;

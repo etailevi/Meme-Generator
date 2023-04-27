@@ -42,7 +42,7 @@
                         placeholder="Search By Keyword" />
     
                     </div>
-                    <ul class="keywords-container clean-list flex justify-evenly">
+                    <ul class="keywords-container clean-list flex justify-evenly wrap">
                         <li><a href="#">Funny</a></li>|
                         <li><a href="#">Animal</a></li>|
                         <li><a href="#">Men</a></li>|
@@ -71,8 +71,8 @@
                             <button class="btn-editor btn-squared btn-switch" onclick="onSwitchLine()"><img
                                     src="icons/up-and-down-opposite-double-arrows-side-by-side.png"
                                     alt="Switch Text Line"></button>
-                            <button class="btn-editor btn-squared btn-add"><img src="icons/add.png" alt="Add"></button>
-                            <button class="btn-editor btn-squared btn-remove"><img src="icons/trash.png" alt="Trash"></button>
+                            <button class="btn-editor btn-squared btn-add" onclick="onAddLine()"><img src="icons/add.png" alt="Add"></button>
+                            <button class="btn-editor btn-squared btn-remove" onclick="onRemoveLine()"><img src="icons/trash.png" alt="Trash"></button>
                         </li>
                         <li class="fonts-editor grid">
                             <div class="text-editor flex space-between align-center">
@@ -96,19 +96,21 @@
                                     <option value="sigmar">Sigmar</option>
                                 </select>
 
-                                <button class="btn-editor btn btn-squared btn-font-stroke">
+                                <button class="btn-editor btn-squared btn-font-stroke">
                                     <img src="icons/paint-board-and-brush.png" alt="Text fill">
                                     <input type="color" value="#000" oninput="onSetStrokeColor(this.value)">
                                 </button>
-                                <button class="btn-editor btn btn-squared btn-font-fill">
+                                <button class="btn-editor btn-squared btn-font-fill">
                                     <img src="icons/text stroke.png" alt="Text stroke">
                                     <input type="color" value="#fff" oninput="onSetFillColor(this.value)">
                                 </button>
                             </div>
                         </li>
                         <li>
-                            <div class="emoji-picker">
+                            <div class="emoji-picker flex space-between align-center">
+                                <button class="arrow-btn"><</button>
                                 <!-- div will contain rendered stickers -->
+                                <button class="arrow-btn">></button>
                             </div>
                         </li>
                         <li class="flex space-between">

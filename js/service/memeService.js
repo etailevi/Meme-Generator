@@ -47,6 +47,26 @@ function _createMeme() {
     }
 }
 
+function addLine() {
+    gMeme.isLineSelected = true
+    gMeme.lines.push({
+        txt: 'Add Text',
+        font: 'Impact',
+        size: 30,
+        align: 'center',
+        strokeColor: 'black',
+        fillColor: 'white',
+        pos: {
+            x: gCanvasWidth / 2,
+            y: gCanvasHeight / 2 },
+    })
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function removeLine() {
+    gMeme.lines[gMeme.selectedLineIdx].txt = ''
+}
+
 function setLineTxt(txt) {
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
 }
@@ -58,6 +78,8 @@ function setStrokeColor(color) {
 function setFillColor(color) {
     gMeme.lines[gMeme.selectedLineIdx].fillColor = color
 }
+
+
 
 function increaseFont() {
     gMeme.lines[gMeme.selectedLineIdx].size += 5
