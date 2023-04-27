@@ -44,6 +44,7 @@
 
     .meme-editor {
         flex-wrap: wrap;
+        margin-block-start: 2.5em;
     }
 }
 
