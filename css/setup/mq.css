@@ -1,4 +1,53 @@
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+	.main-header {
+		/* height: 70px; */
+        /* flex-direction: column; */
+        height: fit-content;
+        border-radius: 0px;
+        height: 80px;
+        margin: 0;
+        margin-block-end: 20px;
+	}
+
+	.main-header ul {
+		max-height: 0;
+		position: fixed;
+		top: 80px;
+		left: 0;
+		width: 100%;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+
+		background-color: var(--clr1);
+
+		transition: max-height 0.5s ease-in-out;
+	}
+
+	.menu-open ul {
+		max-height: 100vh;
+	}
+
+	.main-header ul > li {
+		border-inline-end: none;
+		border-bottom: 1px solid #585858;
+	}
+
+	.main-header ul > li a {
+		width: 100%;
+	}
+
+    .main-header li {
+        margin-block-start: 0.2em;
+    }
+
+    .meme-editor {
+        flex-wrap: wrap;
+    }
+}
+
+/* @media (max-width: 600px) {
     .main-header {
         flex-direction: column;
         height: fit-content;
@@ -10,6 +59,12 @@
 
     .meme-editor {
         flex-wrap: wrap;
+    }
+} */
+
+@media (min-width: 640px) {
+    .btn-menu {
+        display: none;
     }
 }
 

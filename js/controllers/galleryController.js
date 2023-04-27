@@ -25,3 +25,10 @@ function onImgSelect(imgId) {
 function renderImgs(keyword) {
 
 }
+
+function onToggleMenu() {
+    document.body.classList.toggle('menu-open')
+    const elBtn = document.querySelector('.btn-menu')
+    elBtn.innerText = (elBtn.innerText === '☰') ?
+        'X' : '☰'
+}
