@@ -8,7 +8,6 @@ renderMeme()
 
 function renderMeme() {
     const meme = getMeme()
-    const lineDetails = meme.lines[meme.selectedLineIdx]
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
     const elImg = new Image() // Create a new html img element
@@ -16,14 +15,39 @@ function renderMeme() {
     // When the image ready draw it on the canvas
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        gCtx.font = lineDetails.size + 'px ' + lineDetails.font
-        gCtx.fillStyle = lineDetails.fillColor
-        gCtx.strokeStyle = lineDetails.strokeColor
-        gCtx.textAlign = lineDetails.align
-        const memeTxt = (lineDetails.txt) ? lineDetails.txt : ''
-        gCtx.fillText(memeTxt, lineDetails.pos.x, lineDetails.pos.y)
-        gCtx.strokeText(memeTxt, lineDetails.pos.x, lineDetails.pos.y)
+        renderTxt(meme, meme.lines)
     }
+}
+
+function renderTxt(meme, lines) {
+    lines.forEach((line, idx) => {
+        gCtx.font = line.size + 'px ' + line.font
+        gCtx.fillStyle = line.fillColor
+        gCtx.lineWidth = 1
+        gCtx.strokeStyle = line.strokeColor
+        gCtx.textAlign = line.align
+        const memeTxt = (line.txt) ? line.txt : ''
+        gCtx.fillText(memeTxt, line.pos.x, line.pos.y)
+        gCtx.strokeText(memeTxt, line.pos.x, line.pos.y)
+
+        const txtCoords = getTxtPos(idx)
+        setTxtBorders(txtCoords, idx)
+
+        if(idx === meme.selectedLineIdx) {
+            markSelectedTxt(txtCoords, memeTxt)
+        }
+    })
+}
+
+function markSelectedTxt(coords, txt) {
+    if (!txt) return
+    const { xStart, yStart, xEnd, yEnd } = coords
+    gCtx.beginPath()
+    gCtx.roundRect(xStart, yStart, xEnd, yEnd, [5])
+    gCtx.lineWidth = 1
+    gCtx.strokeStyle = 'black'
+    gCtx.stroke()
+    gCtx.closePath()
 }
 
 function onSetLineTxt(txt) {

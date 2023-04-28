@@ -5,7 +5,6 @@ let gCanvasWidth = 400
 let gCanvasHeight = 400
 let gMeme = _createMeme()
 const gEmojis = ['🤓', '😍', '😉', '😥', '😎', '😋', '🤔', '😭', '🥸', '😻', '❤️', '👄', '👀', '👾', '💩']
-const gStickersQty = 4
 let gEmojiIdx = 0
 
 
@@ -137,4 +136,25 @@ function addEmoji(emoji) {
             y: gCanvasHeight / 2 },
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function getTxtPos(idx) {
+    const line = gMeme.lines[idx]
+    let height = line.size
+    let width = gCtx.measureText(line.txt).width
+    let xStart
+    let yStart = line.pos.y - height
+    let xEnd = width + (height / 4)
+    let yEnd = height + (height / 4)
+    
+    if (line.align === 'center') xStart = line.pos.x - (width / 2) - 5
+    else if (line.align === 'start') xStart = line.pos.x - 5
+    else xStart = line.pos.x - width - 5
+
+    return { xStart, yStart, xEnd, yEnd }
+}
+
+function setTxtBorders(coords, idx) {
+    const { xStart, yStart, xEnd, yEnd } = coords
+    gMeme.lines[idx].borders = {xStart, yStart, xEnd: xStart + xEnd, yEnd: yStart + yEnd}
 }
