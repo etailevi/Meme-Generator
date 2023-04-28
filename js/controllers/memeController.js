@@ -87,6 +87,16 @@ function onAlignRight(value) {
     alignRight(value)
     renderMeme()
 }
+renderStickersBar()
+function renderStickersBar() {
+    const elStickers = document.querySelector('.sticker-container')
+    console.log(elStickers)
+    const stickers = getStickers()
+    let strHTMLs = stickers.map(sticker => `
+    <button onclick="onAddSticker(this)">${sticker}</button>`).join('')
+    elStickers.innerHTML = strHTMLs
+    renderMeme()
+}
 
 function downloadImg(elLink) {
     // Gets the canvas content and convert it to base64 data URL that can be save as an image

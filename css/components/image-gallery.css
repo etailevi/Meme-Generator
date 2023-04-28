@@ -32,6 +32,10 @@
     font-size: 1.2em;
 }
 
+.keywords-container li {
+    transition: .5s;
+}
+
 .keywords-container li:hover {
     background-color: rgb(209, 193, 193);
     color: var(--clr1);
@@ -64,7 +68,10 @@
 .images-container img:hover,
 .images-container .file-input:hover {
     scale: 1.1;
+    filter: brightness(100%);
     box-shadow: 0 0 10px 3px var(--clr2);
+    background-color: var(--clr3);
+    color: white;
 }
 
 .file-input label {

@@ -8,9 +8,9 @@ function renderGallery() {
     const imgs = getImgs()
     const elGallery = document.querySelector('.images-container')
     let strHTMLs = `<button class="btn file-input">
-                        <label for="inputTag">
-                            Upload an Image
-                            <input type="file" id="inputTag" name="image" onchange="onImgInput(event)" />
+                        <label for="img-input">
+                            Upload Your Own Image
+                            <input type="file" id="img-input" name="image" onchange="onImgInput(event)" />
                         </label>
                     </button>`
     strHTMLs += imgs.map(img => `
@@ -35,6 +35,5 @@ function renderImgs(keyword) {
 function onToggleMenu() {
     document.body.classList.toggle('menu-open')
     const elBtn = document.querySelector('.btn-menu')
-    elBtn.innerText = (elBtn.innerText === '☰') ?
-        'X' : '☰'
+    elBtn.innerText = (elBtn.innerText === '☰') ? 'X' : '☰'
 }

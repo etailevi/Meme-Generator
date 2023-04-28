@@ -1,43 +1,43 @@
 /* MOBILE */
 
 @media (max-width: 640px) {
-	.main-header {
-		/* height: 70px; */
+    .main-header {
+        /* height: 70px; */
         /* flex-direction: column; */
         height: fit-content;
         border-radius: 0px;
         height: 80px;
         margin: 0;
-	}
+    }
 
-	.main-header ul {
-		max-height: 0;
-		position: fixed;
-		top: 80px;
-		left: 0;
-		width: 100%;
-		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
+    .main-header ul {
+        max-height: 0;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
 
-		background-color: var(--clr1);
+        background-color: var(--clr1);
 
-		transition: max-height 0.5s ease-in-out;
-	}
+        transition: max-height 0.5s ease-in-out;
+    }
 
-	.menu-open ul {
-		max-height: 100vh;
-	}
+    .menu-open ul {
+        max-height: 100vh;
+    }
 
-	.main-header ul > li {
-		border-inline-end: none;
-		border-bottom: 1px solid #ffffffa7;
-	}
+    .main-header ul>li {
+        border-inline-end: none;
+        border-bottom: 1px solid #ffffffa7;
+    }
 
-	.main-header ul > li a {
-		width: 100%;
-	}
+    .main-header ul>li a {
+        width: 100%;
+    }
 
     .main-header li {
         margin-block-start: 0.2em;
@@ -55,10 +55,11 @@
 
     canvas {
         box-shadow: rgba(240, 46, 170, 0.4) 0px 5px,
-         rgba(240, 46, 170, 0.3) 0px 10px,
-          rgba(240, 46, 170, 0.2) 0px 15px;
+            rgba(240, 46, 170, 0.3) 0px 10px,
+            rgba(240, 46, 170, 0.2) 0px 15px;
     }
 
+    .about h1,
     .about p {
         padding: 0.2em;
     }

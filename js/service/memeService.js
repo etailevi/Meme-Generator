@@ -4,6 +4,7 @@ let gImgId
 let gCanvasWidth = 400
 let gCanvasHeight = 400
 let gMeme = _createMeme()
+let gStickers = ['😍', '😉', '😥', '😎']
 
 
 function getMeme() {
@@ -108,5 +109,8 @@ function alignCenter(value) {
 
 function alignRight(value) {
     gMeme.lines[gMeme.selectedLineIdx].align = value
+}
 
+function getStickers() {
+    return gStickers
 }
