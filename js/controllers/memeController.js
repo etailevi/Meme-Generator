@@ -87,15 +87,28 @@ function onAlignRight(value) {
     alignRight(value)
     renderMeme()
 }
-renderStickersBar()
-function renderStickersBar() {
-    const elStickers = document.querySelector('.sticker-container')
-    console.log(elStickers)
-    const stickers = getStickers()
-    let strHTMLs = stickers.map(sticker => `
-    <button onclick="onAddSticker(this)">${sticker}</button>`).join('')
+
+function onAddEmoji(emoji) {
+    addEmoji(emoji)
+    renderMeme()
+}
+
+function renderEmojis() {
+    const elStickers = document.querySelector('.emojis-container')
+    const emojis = getEmojis()
+    let strHTMLs = emojis.map(emoji => `
+    <button onclick="onAddEmoji(this.innerText)">${emoji}</button>`).join('')
     elStickers.innerHTML = strHTMLs
     renderMeme()
+}
+
+function onSelectEmojis(diff) {
+    gEmojiIdx += diff
+    if (gEmojiIdx === -1) {
+        gEmojiIdx = gEmojis.length - 1
+    }
+    if (gEmojiIdx === gEmojis.length) gEmojiIdx = 0
+    renderEmojis()
 }
 
 function downloadImg(elLink) {

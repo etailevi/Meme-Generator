@@ -4,7 +4,10 @@ let gImgId
 let gCanvasWidth = 400
 let gCanvasHeight = 400
 let gMeme = _createMeme()
-let gStickers = ['😍', '😉', '😥', '😎']
+const gEmojis = ['🤓', '😍', '😉', '😥', '😎', '😋', '🤔', '😭', '🥸', '😻', '❤️', '👄', '👀', '👾', '💩']
+const gStickersQty = 4
+let gEmojiIdx = 0
+
 
 
 function getMeme() {
@@ -111,6 +114,27 @@ function alignRight(value) {
     gMeme.lines[gMeme.selectedLineIdx].align = value
 }
 
-function getStickers() {
-    return gStickers
+function getEmojis() {
+    if (gEmojiIdx + 3 < gEmojis.length) {
+        return gEmojis.slice(gEmojiIdx, gEmojiIdx + 4)
+    } else {
+        const gap = gEmojis.length - gEmojiIdx
+        return gEmojis.slice(gEmojiIdx, gEmojiIdx + gap).push(gEmojis.slice(0, 4 - gap))
+    }
+}
+
+function addEmoji(emoji) {
+    gMeme.isLineSelected = true
+    gMeme.lines.push({
+        txt: emoji,
+        font: 'Impact',
+        size: 30,
+        align: 'center',
+        strokeColor: 'black',
+        fillColor: 'white',
+        pos: {
+            x: gCanvasWidth / 2,
+            y: gCanvasHeight / 2 },
+    })
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
 }

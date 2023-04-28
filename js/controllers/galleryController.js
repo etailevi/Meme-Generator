@@ -25,6 +25,7 @@ function onImgSelect(imgId) {
     elGallery.classList.remove('block')
     elGallery.classList.add('none')
     elMemeEditor.classList.remove('none')
+    renderEmojis()
     renderMeme()
 }
 
