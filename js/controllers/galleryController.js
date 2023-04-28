@@ -13,7 +13,6 @@ function renderGallery() {
                             <input type="file" id="inputTag" name="image" onchange="onImgInput(event)" />
                         </label>
                     </button>`
-    console.log('strHtmls', strHTMLs)
     strHTMLs += imgs.map(img => `
     <img src="${img.url}" onclick="onImgSelect(this.id)" id="${img.id}">`).join('')
     elGallery.innerHTML = strHTMLs
