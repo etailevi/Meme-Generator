@@ -11,6 +11,7 @@
 @import url(components/header.css);
 @import url(components/image-gallery.css);
 @import url(components/meme-editor.css);
+@import url(components/about.css);
 
 /* MEDIA-QUERIES */
 @import url(setup/mq.css);

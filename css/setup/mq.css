@@ -1,3 +1,5 @@
+/* MOBILE */
+
 @media (max-width: 640px) {
 	.main-header {
 		/* height: 70px; */
@@ -6,7 +8,6 @@
         border-radius: 0px;
         height: 80px;
         margin: 0;
-        margin-block-end: 20px;
 	}
 
 	.main-header ul {
@@ -31,7 +32,7 @@
 
 	.main-header ul > li {
 		border-inline-end: none;
-		border-bottom: 1px solid #585858;
+		border-bottom: 1px solid #ffffffa7;
 	}
 
 	.main-header ul > li a {
@@ -40,28 +41,30 @@
 
     .main-header li {
         margin-block-start: 0.2em;
+        padding: 1em;
     }
 
     .meme-editor {
         flex-wrap: wrap;
         margin-block-start: 2.5em;
     }
+
+    .canvas-container {
+        margin-block-end: 1.5em;
+    }
+
+    canvas {
+        box-shadow: rgba(240, 46, 170, 0.4) 0px 5px,
+         rgba(240, 46, 170, 0.3) 0px 10px,
+          rgba(240, 46, 170, 0.2) 0px 15px;
+    }
+
+    .about p {
+        padding: 0.2em;
+    }
 }
 
-/* @media (max-width: 600px) {
-    .main-header {
-        flex-direction: column;
-        height: fit-content;
-    }
-
-    .main-header li {
-        margin-block-start: 0.2em;
-    }
-
-    .meme-editor {
-        flex-wrap: wrap;
-    }
-} */
+/* SMALL & ABOVE */
 
 @media (min-width: 640px) {
     .btn-menu {
@@ -69,12 +72,18 @@
     }
 }
 
-@media (max-width: 900px) {
+/* MEDIUM */
+
+@media (max-width: 960px) {
     .gallery-nav {
         flex-wrap: wrap;
     }
 
     .meme-editor {
         flex-wrap: wrap;
+    }
+
+    .canvas-container {
+        margin-block: 1.5em;
     }
 }

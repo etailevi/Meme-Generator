@@ -38,9 +38,9 @@
             <section class="image-gallery block">
                 <nav class="gallery-nav flex space-around align-center">
                     <div class="search-container">
-                        <input type="text" class="search-box" data-trans="search-box-placeholder" oninput="onSetFilterBy(value)"
-                        placeholder="Search By Keyword" />
-    
+                        <input type="text" class="search-box" data-trans="search-box-placeholder"
+                            oninput="onSetFilterBy(value)" placeholder="Search By Keyword" />
+
                     </div>
                     <ul class="keywords-container clean-list flex justify-evenly wrap">
                         <li><a href="#">Funny</a></li>|
@@ -65,14 +65,17 @@
                 <div class="editor-container flex direction-column align-center">
                     <ul class="clean-list flex direction-column">
                         <li class="text-bar">
-                            <input type="text" class="text-input" placeholder="Add Text" oninput="onSetLineTxt(this.value)">
+                            <input type="text" class="text-input" placeholder="Add Text"
+                                oninput="onSetLineTxt(this.value)">
                         </li>
                         <li class="text-control flex justify-evenly">
                             <button class="btn-editor btn-squared btn-switch" onclick="onSwitchLine()"><img
                                     src="icons/up-and-down-opposite-double-arrows-side-by-side.png"
                                     alt="Switch Text Line"></button>
-                            <button class="btn-editor btn-squared btn-add" onclick="onAddLine()"><img src="icons/add.png" alt="Add"></button>
-                            <button class="btn-editor btn-squared btn-remove" onclick="onRemoveLine()"><img src="icons/trash.png" alt="Trash"></button>
+                            <button class="btn-editor btn-squared btn-add" onclick="onAddLine()"><img
+                                    src="icons/add.png" alt="Add"></button>
+                            <button class="btn-editor btn-squared btn-remove" onclick="onRemoveLine()"><img
+                                    src="icons/trash.png" alt="Trash"></button>
                         </li>
                         <li class="fonts-editor grid">
                             <div class="text-editor flex space-between align-center">
@@ -80,15 +83,19 @@
                                         src="icons/increase font - icon.png" alt="Font larger"></button>
                                 <button class="btn-editor btn-squared" onclick="onDecreaseFont()"><img
                                         src="icons/decrease font - icon.png" alt="Font smaller"></button>
-                                <button class="btn-editor btn-squared" value="left" onclick="onAlignLeft(this.value)"><img
-                                        src="icons/align-to-left.png" alt="Text align left"></button>
-                                <button class="btn-editor btn-squared" value="center" onclick="onAlignCenter(this.value)"><img
-                                        src="icons/center-text-alignment.png" alt="Text align center"></button>
-                                <button class="btn-editor btn-squared" value="right" onclick="onAlignRight(this.value)"><img
-                                        src="icons/align-to-right.png" alt="Text align right"></button>
+                                <button class="btn-editor btn-squared" value="end"
+                                    onclick="onAlignLeft(this.value)"><img src="icons/align-to-left.png"
+                                        alt="Text align left"></button>
+                                <button class="btn-editor btn-squared" value="center"
+                                    onclick="onAlignCenter(this.value)"><img src="icons/center-text-alignment.png"
+                                        alt="Text align center"></button>
+                                <button class="btn-editor btn-squared" value="start"
+                                    onclick="onAlignRight(this.value)"><img src="icons/align-to-right.png"
+                                        alt="Text align right"></button>
                             </div>
                             <div class="flex space-between">
-                                <select class="select-font btn btn-squared" id="select-font" onchange="onSetFontFamily(this.value)">
+                                <select class="select-font btn btn-squared" id="select-font"
+                                    onchange="onSetFontFamily(this.value)">
                                     <option value="impact">Impact</option>
                                     <option value="arial">Arial</option>
                                     <option value="lobster">Lobster</option>
@@ -108,9 +115,10 @@
                         </li>
                         <li>
                             <div class="emoji-picker flex space-between align-center">
-                                <button class="arrow-btn"><</button>
-                                <!-- div will contain rendered stickers -->
-                                <button class="arrow-btn">></button>
+                                <button class="arrow-btn">
+                                    << /button>
+                                        <!-- div will contain rendered stickers -->
+                                        <button class="arrow-btn">></button>
                             </div>
                         </li>
                         <li class="flex space-between">
@@ -123,8 +131,33 @@
                 </div>
             </section>
 
-            <section class="about none">
+            <section class="about flex justify-center direction-column none">
+                <h1>Welcome to Etai's Meme Generator App</h1>
+                <p>This is a meme generator app which is an innovative and fun application that allows users to create their own
+                    memes. I created this app during a full-stack course in Coding Academy. For making this project,
+                    I used complex technologies and some coding languages, such as <span class="html-word">HTML</span>, 
+                    <span class="css-word">CSS</span> and <span class="js-word">JS</span>.
+                    Memes have become a popular form of expression in the digital age, and with the rise of
+                    social media, the demand for easy-to-use meme generators has skyrocketed. The app usually comes with
+                    a pre-built library of images, but users can also upload their own pictures to use as templates for
+                    their memes. With a variety of font sizes, styles, and colors to choose from, users can add text to
+                    their memes, adjusting the size and positioning to create the perfect caption.
 
+
+                <p> One of the key features of a meme generator app is its ease of use. The user interface is typically
+                    straightforward, making it easy for even the most inexperienced users to create their memes. Most
+                    apps also come with templates that offer a starting point for users who need a bit of inspiration.
+                    Users can quickly browse through these templates and make adjustments as needed, creating memes that
+                    are personalized and unique. The app may also offer a range of editing tools, such as crop, rotate,
+                    and resize, which allow users to further customize their memes.
+                </p>
+                <p> Another benefit of using a meme generator app is the ability to share memes quickly and easily. Once
+                    a user has created a meme, they can save it to their device or share it directly to social media
+                    platforms such as Instagram, Twitter, and Facebook. This means that users can easily share their
+                    memes with friends, family, and followers, spreading humor and joy across the internet. Overall, a
+                    meme generator app is a fun and accessible tool that allows users to express themselves creatively
+                    and share their humor with the world.
+                </p>
             </section>
         </main>
     </main>
@@ -134,6 +167,8 @@
     <script src="js/service/memeService.js"></script>
     <script src="js/controllers/galleryController.js"></script>
     <script src="js/controllers/memeController.js"></script>
+    <script src="js/controllers/aboutController.js"></script>
+    <script src="js/service/upload-from-local.js"></script>
     <script src="js/service/sharing-on-facebook.js"></script>
 
 </body>

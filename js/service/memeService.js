@@ -108,4 +108,5 @@ function alignCenter(value) {
 
 function alignRight(value) {
     gMeme.lines[gMeme.selectedLineIdx].align = value
+
 }

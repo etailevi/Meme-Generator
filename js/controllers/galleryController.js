@@ -5,11 +5,18 @@ function onInitImgGallery() {
 }
 
 function renderGallery() {
-    let imgs = getImgs()
+    const imgs = getImgs()
     const elGallery = document.querySelector('.images-container')
-    const strHTMLs = imgs.map(img => `
-    <img src="${img.url}" onclick="onImgSelect(this.id)" id="${img.id}">`)
-    elGallery.innerHTML = strHTMLs.join('')
+    let strHTMLs = `<button class="btn file-input">
+                        <label for="inputTag">
+                            Upload an Image
+                            <input type="file" id="inputTag" name="image" onchange="onImgInput(event)" />
+                        </label>
+                    </button>`
+    console.log('strHtmls', strHTMLs)
+    strHTMLs += imgs.map(img => `
+    <img src="${img.url}" onclick="onImgSelect(this.id)" id="${img.id}">`).join('')
+    elGallery.innerHTML = strHTMLs
 }
 
 function onImgSelect(imgId) {

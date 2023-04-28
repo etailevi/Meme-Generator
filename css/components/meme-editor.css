@@ -1,6 +1,7 @@
 .canvas-container {
     width: 400px;
     height: 400px;
+    margin-inline: 2em;
 }
 
 canvas {

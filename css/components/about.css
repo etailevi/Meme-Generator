@@ -1,0 +1,28 @@
+.about {
+    background-color: #383b42;
+    margin: 2em;
+    padding: 2em;
+    height: max-content;
+    border-radius: 2em;
+    color: white;
+}
+
+.about h1 {
+    text-align: center;
+    font-size: 3em;
+}
+
+.about p {
+    padding-inline: 2em;
+    font-size: 1.5em;
+}
+
+.about .html-word {
+    color: var(--clr1);
+}
+.about .css-word {
+    color: var(--clr2);
+}
+.about .js-word {
+    color: var(--clr3);
+}
