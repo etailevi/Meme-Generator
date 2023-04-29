@@ -52,7 +52,7 @@ function setImg(imgId) {
     gMeme.selectedImgId = imgId
 }
 
-function _createMeme() {
+function _createMeme(pos) {
     return {
         selectedImgId: 1,
         selectedLineIdx: 0,
@@ -68,6 +68,7 @@ function _createMeme() {
                     x: gCanvasWidth / 2,
                     y: gCanvasHeight * 0.15
                 },
+                isDrag: false
             },
             {
                 txt: 'Add Text',
@@ -80,10 +81,39 @@ function _createMeme() {
                     x: gCanvasWidth / 2,
                     y: gCanvasHeight * 0.85
                 },
+                isDrag: false
             }
         ]
     }
 }
+
+function getLine() {
+    return gMeme.lines[gMeme.selectedLineIdx]
+}
+
+//Check if the click is inside the line
+function isLineClicked(clickedPos) {
+    return gMeme.lines.findIndex(line => {
+        const { xStart, xEnd, yStart, yEnd} = line.borders
+        return ((clickedPos.offsetY >= yStart && clickedPos.offsetY <= yEnd)
+         && (clickedPos.offsetX >= xStart && clickedPos.offsetX <= xEnd))
+    })
+}
+
+
+function setLineDrag(isDrag) {
+    gMeme.lines[gMeme.selectedLineIdx].isDrag = isDrag
+}
+
+// Move the line in a delta, diff from the pervious pos
+function moveLine(dx, dy) {
+    // console.log('dx:', dx)
+    // console.log('dy:', dy)
+    gMeme.lines[gMeme.selectedLineIdx].pos.x += dx
+    gMeme.lines[gMeme.selectedLineIdx].pos.y += dy
+}
+
+
 
 function addLine() {
     gMeme.isLineSelected = true

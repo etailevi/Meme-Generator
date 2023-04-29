@@ -163,20 +163,39 @@ function addTouchListeners() {
 }
 
 function onDown(ev) {
-    gIsMouseDown = true
+    console.log('Down!')
+    // gIsMouseDown = true
+    // Get the ev pos from mouse or touch
     const pos = getEvPos(ev)
-    renderMeme()
+    if (!isLineClicked(pos)) return
+    setLineDrag(true)
+    //Save the pos we start from
+    gStartPos = pos
+    document.body.style.cursor = 'grabbing'
 }
 
 function onMove(ev) {
-    if (!gIsMouseDown) return
-    let pos = getEvPos(ev)
-    gElCanvas.style.cursor = 'grabbing'
+    console.log('Move!')
+    const line = getLine()
+    // if (!gIsMouseDown) return
+    const { isDrag } = line
+    if (!line || !isDrag) return
+    const pos = getEvPos(ev)
+    // Calc the delta , the diff we moved
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+    moveLine(dx, dy)
+    // Save the last pos , we remember where we`ve been and move accordingly
+    gStartPos = pos
+    // The meme is render again after every move
     renderMeme()
+    gElCanvas.style.cursor = 'grabbing'
 }
 
 function onUp() {
-    gIsMouseDown = false
+    console.log('Up!')
+    // gIsMouseDown = false
+    setLineDrag(false)
     gElCanvas.style.cursor = 'grab'
 }
 
@@ -204,7 +223,6 @@ function getEvPos(ev) {
     }
     return pos
 }
-
 
 function downloadImg(elLink) {
     // Gets the canvas content and convert it to base64 data URL that can be save as an image
