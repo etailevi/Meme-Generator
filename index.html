@@ -19,8 +19,10 @@
 
         <div class="main-screen menu-background" onclick="onToggleMenu()"></div>
 
+        <!-- Main Header (Always Shown) -->
+
         <header class="main-header main-layout flex space-between align-center">
-            <img src="logo/logo.png" href="#" alt="MemeGen-logo" class="logo" onclick="onShowGallery()">
+            <a href="" onclick="onShowGallery()" class="align-center"> <img src="logo/logo.png" alt="MemeGen-logo" class="logo"></a>
             <nav class="main-nav">
                 <ul class="flex clean-list">
                     <li><a href="" class="nav-link flex align-center justify-center"
@@ -35,6 +37,9 @@
         </header>
 
         <main class="main-layout main-content">
+
+            <!-- Gallery -->
+
             <section class="image-gallery block">
                 <nav class="gallery-nav flex space-around align-center">
                     <div class="search-container">
@@ -47,7 +52,8 @@
                         <li><a href="#">Animal</a></li>|
                         <li><a href="#">Men</a></li>|
                         <li><a href="#">Women</a></li>|
-                        <li><a href="#">Cry</a></li>
+                        <li><a href="#">Cry</a></li>|
+                        <li><a href="#">Laugh</a></li>
                     </ul>
                     </div>
                     <button class="btn more-btn">More</button>
@@ -56,6 +62,7 @@
                 </section>
             </section>
 
+            <!-- Meme Editor -->
 
             <section class="meme-editor flex justify-evenly align-center none">
                 <div class="canvas-container">
@@ -97,6 +104,7 @@
                                 <select class="select-font btn btn-squared" id="select-font"
                                     onchange="onSetFontFamily(this.value)">
                                     <option value="impact">Impact</option>
+                                    <option value="cursive">Cursive</option>
                                     <option value="arial">Arial</option>
                                     <option value="lobster">Lobster</option>
                                     <option value="rubik">Rubik</option>
@@ -124,11 +132,20 @@
                             <button class="btn-editor btn-share btn-squared" onclick="onUploadImg()">Share</button>
                             <button class="btn-editor btn-download btn-squared"><a href="#" onclick="downloadImg(this)"
                                     download="my-meme.jpg">Download</a></button>
-                            <button class="btn-editor btn-save btn-squared" onclick="">Save</button>
+                            <button class="btn-editor btn-save btn-squared" onclick="onSaveMeme()">Save</button>
                         </li>
                     </ul>
                 </div>
             </section>
+
+            <!-- Saved Memes -->
+
+            <section class="saved-memes none">
+                <section class="saved-memes-container main-layout flex justify-center wrap">
+                </section>
+            </section>
+
+            <!-- About -->
 
             <section class="about flex justify-center direction-column none">
                 <h1>Welcome to Etai's Meme Generator App</h1>
@@ -161,12 +178,14 @@
         </main>
     </main>
 
+    <script src="js/service/utils.js"></script>
     <script src="js/service/storage.js"></script>
     <script src="js/service/galleryService.js"></script>
     <script src="js/service/memeService.js"></script>
     <script src="js/controllers/galleryController.js"></script>
     <script src="js/controllers/memeController.js"></script>
     <script src="js/controllers/aboutController.js"></script>
+    <script src="js/controllers/savedMemesContoller.js"></script>
     <script src="js/service/upload-from-local.js"></script>
     <script src="js/service/sharing-on-facebook.js"></script>
 

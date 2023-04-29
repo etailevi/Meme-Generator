@@ -25,12 +25,10 @@ function onImgSelect(imgId) {
     elGallery.classList.remove('block')
     elGallery.classList.add('none')
     elMemeEditor.classList.remove('none')
+    initCanvas()
+    getMeme()
     renderEmojis()
-    renderMeme()
-}
-
-function renderImgs(keyword) {
-
+    hideSaved()
 }
 
 function onToggleMenu() {

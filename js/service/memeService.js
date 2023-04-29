@@ -1,5 +1,8 @@
 'use strict'
 
+const STORAGE_KEY = 'memesDB'
+let gSavedMemes = _createSavedMemes()
+
 let gImgId
 let gCanvasWidth = 400
 let gCanvasHeight = 400
@@ -7,7 +10,39 @@ let gMeme = _createMeme()
 const gEmojis = ['🤓', '😍', '😉', '😥', '😎', '😋', '🤔', '😭', '🥸', '😻', '❤️', '👄', '👀', '👾', '💩']
 let gEmojiIdx = 0
 
+function _createSavedMemes() {
+    let savedMemes = loadFromStorage(STORAGE_KEY)
 
+    if (!savedMemes || !savedMemes.length) {
+        savedMemes = []
+        saveToStorage(STORAGE_KEY, savedMemes)
+    }
+
+    return savedMemes
+}
+
+function saveNewMeme(memeUrl) {
+    const memeIdx = gSavedMemes.findIndex(meme => (meme.id === gMeme.id))
+    if (memeIdx >= 0) {
+        gSavedMemes[memeIdx].src = dataURL
+    } else {
+        let savedMeme = gMeme
+        savedMeme.src = memeUrl
+        savedMeme.id = getRandomId()
+        gSavedMemes.push(savedMeme)
+    }
+    saveToStorage(STORAGE_KEY, gSavedMemes)
+}
+
+function removeSavedMeme(memeId) {
+    const memeIdx = gSavedMemes.findIndex(meme => (meme.id === memeId))
+    gSavedMemes.splice(memeIdx, 1)
+    saveToStorage(STORAGE_KEY, gSavedMemes)
+}
+
+function getSavedMemes() {
+    return gSavedMemes
+}
 
 function getMeme() {
     return gMeme
@@ -61,7 +96,8 @@ function addLine() {
         fillColor: 'white',
         pos: {
             x: gCanvasWidth / 2,
-            y: gCanvasHeight / 2 },
+            y: gCanvasHeight / 2
+        },
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
@@ -133,7 +169,8 @@ function addEmoji(emoji) {
         fillColor: 'white',
         pos: {
             x: gCanvasWidth / 2,
-            y: gCanvasHeight / 2 },
+            y: gCanvasHeight / 2
+        },
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
@@ -146,7 +183,7 @@ function getTxtPos(idx) {
     let yStart = line.pos.y - height
     let xEnd = width + (height / 4)
     let yEnd = height + (height / 4)
-    
+
     if (line.align === 'center') xStart = line.pos.x - (width / 2) - 5
     else if (line.align === 'start') xStart = line.pos.x - 5
     else xStart = line.pos.x - width - 5
@@ -156,5 +193,5 @@ function getTxtPos(idx) {
 
 function setTxtBorders(coords, idx) {
     const { xStart, yStart, xEnd, yEnd } = coords
-    gMeme.lines[idx].borders = {xStart, yStart, xEnd: xStart + xEnd, yEnd: yStart + yEnd}
+    gMeme.lines[idx].borders = { xStart, yStart, xEnd: xStart + xEnd, yEnd: yStart + yEnd }
 }

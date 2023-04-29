@@ -71,20 +71,25 @@
     .btn-menu {
         display: none;
     }
+
+
 }
 
 /* MEDIUM */
 
 @media (max-width: 960px) {
-    .gallery-nav {
-        flex-wrap: wrap;
-    }
 
+    .saved-memes,
+    .gallery-nav,
     .meme-editor {
         flex-wrap: wrap;
     }
 
     .canvas-container {
         margin-block: 1.5em;
+    }
+
+    .saved-meme-img {
+        width: 100%;
     }
 }
