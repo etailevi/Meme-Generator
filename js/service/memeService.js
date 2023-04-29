@@ -184,7 +184,8 @@ function getEmojis() {
         return gEmojis.slice(gEmojiIdx, gEmojiIdx + 4)
     } else {
         const gap = gEmojis.length - gEmojiIdx
-        return gEmojis.slice(gEmojiIdx, gEmojiIdx + gap).push(gEmojis.slice(0, 4 - gap))
+        return gEmojis.slice(gEmojiIdx, gEmojiIdx + gap)
+        .concat(gEmojis.slice(0, 4 - gap))
     }
 }
 

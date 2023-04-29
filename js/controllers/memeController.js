@@ -193,7 +193,6 @@ function onMove(ev) {
 }
 
 function onUp() {
-    console.log('Up!')
     // gIsMouseDown = false
     setLineDrag(false)
     gElCanvas.style.cursor = 'grab'

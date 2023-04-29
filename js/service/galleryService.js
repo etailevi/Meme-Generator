@@ -1,7 +1,7 @@
 'use strict'
 
 let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
-const gImageNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+const gImageNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 let gImgs = _createImgs()
 
 function getImgs() {
